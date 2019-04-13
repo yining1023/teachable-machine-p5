@@ -2,14 +2,14 @@ Here are two examples of image and audio classifier.
 
 - Image classifier
   - Image classifier on images
-  <img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo1.png" width="500">
+  <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo1.png" width="500"></kbd>
   - Image classifier on webcam
-  <img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo2-1.png" width="500">
-  <img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo2-2.png" width="500">
+  <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo2-1.png" width="500"></kbd>
+  <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo2-2.png" width="500"></kbd>
 
 - Audio classifier
   - Audio classifier on micro phone
-  <img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo3.png" width="500">
+  <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo3.png" width="300"></kbd>
 
 ## Get started
 Go to your terminal:
