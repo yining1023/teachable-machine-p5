@@ -4,7 +4,7 @@ Here are examples of image and audio classifier.
   - Image classifier on images
   - Image classifier on webcam
 - Audio classifier
-  - Audio classifier on micro phone
+  - Audio classifier on the microphone
 
 ## Demo
 - Image classifier on images demo:<br/>
@@ -14,7 +14,7 @@ Here are examples of image and audio classifier.
   <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo2-1.png" width="500"></kbd>
   <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo2-2.png" width="500"></kbd>
 
-- Audio classifier on micro phone demo:<br/>
+- Audio classifier on the microphone demo:<br/>
   <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo3.png" width="300"></kbd>
 
 ## Get started
