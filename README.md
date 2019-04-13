@@ -1,11 +1,12 @@
-Here are two examples of image and audio classifier.
+## List of examples
+Here are examples of image and audio classifier.
 - Image classifier
   - Image classifier on images
   - Image classifier on webcam
 - Audio classifier
   - Audio classifier on micro phone
 
-
+## Demo
 - Image classifier on images demo:<br/>
   <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo1.png" width="500"></kbd>
   
