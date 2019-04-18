@@ -6,12 +6,6 @@ let model;
 let video;
 let canvas;
 
-// for resizing and positioning of video image on canvas
-let resizeWidth;
-let resizeHeight;
-let moveX;
-let moveY;
-
 let weights = document.getElementById('weights');
 let json = document.getElementById('json');
 
@@ -51,44 +45,25 @@ async function setup() {
 
   setupVideo();
 
-  canvas = createCanvas(size,size);
+  canvas = createCanvas(size, size);
 }
 
 function setupVideo() {
-// Get videos from webcam
+  // Get videos from webcam
   video = createCapture(VIDEO);
 
-  // get ratio for resizing and cropping the video
-  let w = video.width; 
-  let h = video.height;
-  let ratio;
-
-  if(w > h) {
-    ratio  = size / h;
-  }
-  else {
-    ratio = size / w;
-  }
-
-  resizeWidth = ratio * w;
-  resizeHeight = ratio * h;
-  moveX = - (resizeWidth - size) / 2;
-  moveY = - (resizeHeight - size) / 2;
-
-  // does not change actual video constraints to square, for that we need to draw to canvas
-  video.size(size, size);
-
+  // Hide the video
   video.hide()
 }
 
 function draw() {
-  if(video != undefined) {
-    // we need to flip the webcam view 
-    translate(size,0); // move to far corner
-    scale(-1.0,1.0);    // flip x-axis backwards
+  if (video) {
+    // We need to flip the webcam view
+    translate(size, 0); // move to far corner
+    scale(-1.0, 1.0); // flip x-axis backwards
 
-    // draw the image from the video
-    image(video, moveX, moveY, resizeWidth, resizeHeight);
+    // Draw the image from the video
+    image(video, 0, 0);
 
     // Make a prediction from square canvas
     predictVideo(canvas.elt);
@@ -97,7 +72,6 @@ function draw() {
 
 async function predictVideo(image) {
   const prediction = await model.predict(image, maxPredictions);
-  // console.log(prediction);
 
   // Show the result
   const res = select('#res'); // select <span id="res">
