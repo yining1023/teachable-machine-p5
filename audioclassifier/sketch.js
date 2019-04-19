@@ -8,6 +8,7 @@ const recognizer = speechCommands.create(
   metadataJson
 );
 
+const canvas = document.getElementById('canvas'); // to display spectrogram of results
 const prob0 = document.getElementById('prob0'); // select <span id="prob0">
 const prob1 = document.getElementById('prob1'); // select <span id="prob1">
 
@@ -27,14 +28,18 @@ async function loadMyModel() {
   //    - includeSpectrogram
   //    - probabilityThreshold
   //    - includeEmbedding
-  recognizer.listen(result => {
+  recognizer.listen(async (result) => {
     showResult(result);
     // - result.scores contains the probability scores that correspond to
     //   recognizer.wordLabels().
     // - result.spectrogram contains the spectrogram of the recognized word.
+
+    // optionally display spectrogram of result
+    var spectrogram = result.spectrogram;
+    await plotSpectrogram(canvas, spectrogram, recognizer);
   }, {
     includeSpectrogram: true,
-    probabilityThreshold: 0.55
+    probabilityThreshold: 0.25
   });
 
   // Stop the recognition in 10 seconds.
