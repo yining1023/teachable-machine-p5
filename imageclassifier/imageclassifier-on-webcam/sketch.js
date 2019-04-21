@@ -49,8 +49,17 @@ async function setup() {
 }
 
 function setupVideo() {
+  // has to be a square video and image feed
+  let constraints = {
+    video: {
+      width: size,
+      height: size,
+      aspectRatio: 1
+    } 
+  };
+
   // Get videos from webcam
-  video = createCapture(VIDEO);
+  video = createCapture(VIDEO, constraints);
 
   // Hide the video
   video.hide()
