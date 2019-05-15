@@ -1,5 +1,5 @@
 ## About
-This repo holds a few very basic p5.js examples that uses the models trained using Google's teachable machine prototype.
+This repo holds a few basic [p5.js](http://p5js.org) examples that uses the models trained with Google's teachable machine prototype.
 
 ## List of examples
 Here are examples of image and audio classifier.
@@ -11,14 +11,13 @@ Here are examples of image and audio classifier.
 
 ## Demo
 - Image classifier on images demo:<br/>
-  <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo1.png" width="500"></kbd>
+  <kbd><img src="/images/demo1.png" width="500"></kbd>
   
 - Image classifier on webcam demo:<br/>
-  <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo2-1.png" width="500"></kbd>
-  <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo2-2.png" width="500"></kbd>
+  <kbd><img src="/images/demo2-1.png" width="300"></kbd><kbd><img src="/images/demo2-2.png" width="300"></kbd>
 
 - Audio classifier on the microphone demo:<br/>
-  <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo3.png" width="300"></kbd>
+  <kbd><img src="/images/demo3.png" width="300"></kbd>
 
 ## Get started
 Go to your terminal:
