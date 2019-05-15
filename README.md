@@ -43,7 +43,7 @@ Click into each folder, you will see the examples.
 
 ## More Teachable Machine Prototype + p5.js Projects!
 - [Your full name](Your portfolio link/twitter/Instagram/any link you like), [Project name](Your blog link with images/videos), Project short description, [Live demo](optional, live demo link)
-- - Khensu-Ra [Inevitable](https://github.com/Khensura21/ml4w-hw/tree/master/final)
+- Khensu-Ra [Inevitable](https://github.com/Khensura21/ml4w-hw/tree/master/final)
 - Caleb - [Walmartvision](https://github.com/calebsavage/machine-learning-for-web/tree/master/walmartvision)
 - Daniel - [Create your GUI with OSCAR](https://docs.google.com/presentation/d/1JTMhAxybXksrZHRMRJnUGdRB3KBwzd7ZJ21MVGX2mRo/edit?usp=sharing)
 - Dylan - [Move the Little Dude](https://dylandawkinsblog.wordpress.com/2019/05/08/machine-learning-for-web-final/), Use hand gestures to move a character.
