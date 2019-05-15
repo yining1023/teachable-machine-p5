@@ -11,7 +11,7 @@ async function load() {
 }
 
 async function setup() {
-  // Call the load function, wait util it finishes loading
+  // Call the load function, wait until it finishes loading
   await load();
 
   // Get the image html element id: image1 (p5.dom library)

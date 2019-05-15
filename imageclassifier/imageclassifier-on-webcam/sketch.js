@@ -40,7 +40,7 @@ function getNumberOfClasses() {
 }
 
 async function setup() {
-  // Call the load function, wait util it finishes loading
+  // Call the load function, wait until it finishes loading
   await load();
 
   setupVideo();

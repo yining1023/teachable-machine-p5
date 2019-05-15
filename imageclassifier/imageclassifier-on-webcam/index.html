@@ -9,12 +9,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
 </head>
 
+<style>
+  .bold-text {
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>
+
 <body>
   <h2>Image classifier on Webcam</h2>
   <span>Json file (optional)</span><input type="file" id="json">
   <span>Weights file (optional)</span><input type="file" id="weights">
   <div>
-    <p>The image classifier classify video as <span id="res">...</span> with <span id="prob">...</span> confidence.</p>
+    <p>The image classifier classify video as class <span id="res" class="bold-text">...</span> with <span id="prob" class="bold-text">...</span> confidence.</p>
     <p>Class 0: allblack (cover your webcam with your finger)</p>
     <p>Class 1: anythingelse (don't cover your webcam)</p>
   </div>
