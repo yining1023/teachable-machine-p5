@@ -48,7 +48,7 @@ Click into each folder, you will see the examples.
 - Daniel - [Create your GUI with OSCAR](https://docs.google.com/presentation/d/1JTMhAxybXksrZHRMRJnUGdRB3KBwzd7ZJ21MVGX2mRo/edit?usp=sharing)
 - Dylan - [Move the Little Dude](https://dylandawkinsblog.wordpress.com/2019/05/08/machine-learning-for-web-final/), Use hand gestures to move a character.
 - Eva - [link](https://www.evaphilips.com/machine-learning-for-the-web/2019/5/8/week-6-7-final-project)
-- Vince - [Teachable Snake](https://github.com/vince19972/TeachableSnake)
+- Vince - [Vince MingPu Shao](https://www.vinceshao.com/), [Teachable Snake](https://www.vinceshao.com/works/teachable-snake), Teachable Snake is a classic snake game controlled by webcam image, powered by Tensorflow.js and Teachable Machine by Google, using pre-trained neural network models., [Live demo](https://teachable-snake.netlify.com/)
 - Eva Philips, [Mood Agent](https://www.evaphilips.com/machine-learning-for-the-web/2019/4/13/week-3-mood-agent), Keep the ball afloat by saying the word "Happy"
 - Caleb Savage, [Screen Locker](https://calebsavage.github.io/ml4w-week3/) Obscure the web page when the camera can't recognize my face.
 - Dylan, [Duet Machine](https://dylandawkinsblog.wordpress.com/2019/04/17/duet-machine/), Tired of singing duets alone? Try this machine!
