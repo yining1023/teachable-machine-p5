@@ -1,3 +1,6 @@
+## About
+This repo holds a few very basic p5.js examples that uses the models trained using Google's teachable machine prototype.
+
 ## List of examples
 Here are examples of image and audio classifier.
 - Image classifier
