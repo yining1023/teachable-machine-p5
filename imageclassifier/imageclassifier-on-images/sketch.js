@@ -1,6 +1,6 @@
 const checkpoint = 'https://storage.googleapis.com/tm-pro-a6966.appspot.com/Yining-image-example/model.json';
-const maxPredictions = 2;
 
+let totalClasses;
 let img1;
 let img2;
 let model;
@@ -8,6 +8,8 @@ let model;
 // A function that loads the model
 async function load() {
   model = await tm.mobilenet.load(checkpoint);
+  totalClasses = model.getTotalClasses();
+  console.log("Number of classes, ", totalClasses);
 }
 
 async function setup() {
@@ -26,7 +28,7 @@ async function setup() {
 }
 
 async function predictImage(image, id) {
-  const prediction = await model.predict(image, maxPredictions);
+  const prediction = await model.predict(image, totalClasses);
   console.log('prediction: ', prediction)
 
   // Show the result
@@ -35,5 +37,5 @@ async function predictImage(image, id) {
 
   // Show the probability
   const prob = select(`#prob${id}`); // select either <span id="prob1"> or <span id="prob2">
-  prob.html(prediction[0].probability);
+  prob.html(prediction[0].probability.toFixed(2));
 }
