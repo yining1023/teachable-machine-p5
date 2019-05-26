@@ -24,7 +24,7 @@ Here are examples of image and audio classifier.
   video demo is coming soon.
 
 - Audio classifier on the microphone demo:
-  [Try it live](https://yining1023.github.io/teachable-machine-p5/imageclassifier/imageclassifier-on-images/)<br/>
+  [Try it live](https://yining1023.github.io/teachable-machine-p5/audioclassifier)<br/>
   <kbd><img src="https://github.com/yining1023/teachable-machine-example/raw/master/images/demo3.png" width="300"></kbd>
 
 ## Get started
