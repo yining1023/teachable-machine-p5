@@ -39,7 +39,8 @@ async function loadMyModel() {
     await plotSpectrogram(canvas, spectrogram, recognizer);
   }, {
     includeSpectrogram: true,
-    probabilityThreshold: 0.25
+    probabilityThreshold: 0.25,
+    overlapFactor: 0.75 // probably want between 0.5 and 0.75. More info in README
   });
 
   // Stop the recognition in 10 seconds.
