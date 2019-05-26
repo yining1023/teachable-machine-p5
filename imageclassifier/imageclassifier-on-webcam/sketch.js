@@ -1,10 +1,10 @@
 const checkpoint = 'https://storage.googleapis.com/tm-pro-a6966.appspot.com/Yining-image-example/model.json';
-const maxPredictions = 2;
-const size = 400;
+const size = 300;
 
+let vidContainer = document.getElementById('vidContainer');
+let webcamEl;
 let model;
-let video;
-let canvas;
+let totalClasses;
 
 let weights = document.getElementById('weights');
 let json = document.getElementById('json');
@@ -20,7 +20,8 @@ json.onchange = function(e) {
 // A function that loads the model from the checkpoint
 async function load() {
   model = await tm.mobilenet.load(checkpoint);
-  console.log("Number of classes, ", getNumberOfClasses());
+  totalClasses = model.getTotalClasses();
+  console.log("Number of classes, ", totalClasses);
 }
 
 // A function that loads the model from user-uploaded files
@@ -31,62 +32,39 @@ async function loadFiles() {
   if(jsonFile != undefined && weightsFile != undefined) {
     console.log("model loaded from uploaded files");
     model = await tm.mobilenet.loadFromFiles(json.files[0], weights.files[0]);
-    console.log("Number of classes, ", getNumberOfClasses());
+    console.log("Number of classes, ", model.getTotalClasses());
   }
 }
 
-function getNumberOfClasses() {
-  return model.model.outputShape[1];
+async function loadWebcam() {
+  const vidContainerEl = document.getElementById('vidContainer');
+  webcamEl = await tm.getWebcam(size, size); // can change width and height
+  webcamEl.play();
+  vidContainerEl.append(webcamEl);
 }
 
 async function setup() {
   // Call the load function, wait until it finishes loading
   await load();
-
-  setupVideo();
-
-  canvas = createCanvas(size, size);
-}
-
-function setupVideo() {
-  // has to be a square video and image feed
-  let constraints = {
-    video: {
-      width: size,
-      height: size,
-      aspectRatio: 1
-    } 
-  };
-
-  // Get videos from webcam
-  video = createCapture(VIDEO, constraints);
-
-  // Hide the video
-  video.hide()
+  await loadWebcam();
 }
 
 function draw() {
-  if (video) {
-    // We need to flip the webcam view
-    translate(size, 0); // move to far corner
-    scale(-1.0, 1.0); // flip x-axis backwards
-
-    // Draw the image from the video
-    image(video, 0, 0);
-
-    // Make a prediction from square canvas
-    predictVideo(canvas.elt);
-  }
+  predictVideo(webcamEl);
 }
 
 async function predictVideo(image) {
-  const prediction = await model.predict(image, maxPredictions);
+  if (image) {
+    // in this case we set the flip variable to true since webcam 
+    // was only flipped in CSS 
+    const prediction = await model.predict(image, true, totalClasses);
 
-  // Show the result
-  const res = select('#res'); // select <span id="res">
-  res.html(prediction[0].className);
-
-  // Show the probability
-  const prob = select('#prob'); // select <span id="prob">
-  prob.html(prediction[0].probability);
+    // Show the result
+    const res = select('#res'); // select <span id="res">
+    res.html(prediction[0].className);
+  
+    // Show the probability
+    const prob = select('#prob'); // select <span id="prob">
+    prob.html(prediction[0].probability.toFixed(2));
+  }
 }

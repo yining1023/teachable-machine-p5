@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>Image classifier</title>
   
-  <script src="https://storage.googleapis.com/tm-pro/v0.3.0/tm-pro.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.2/dist/tf.min.js"></script>
+  <script src="https://storage.googleapis.com/tm-pro/v1.0.4/tm-pro.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
 </head>
@@ -24,6 +25,7 @@
     <p>The image classifier classify video as class <span id="res" class="bold-text">...</span> with <span id="prob" class="bold-text">...</span> confidence.</p>
     <p>Class 0: allblack (cover your webcam with your finger)</p>
     <p>Class 1: anythingelse (don't cover your webcam)</p>
+    <div id='vidContainer'></div>
   </div>
   
   <script src="sketch.js"></script>
