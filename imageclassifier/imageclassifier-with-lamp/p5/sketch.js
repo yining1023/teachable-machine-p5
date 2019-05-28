@@ -1,10 +1,10 @@
 const checkpoint = 'https://storage.googleapis.com/tm-pro-a6966.appspot.com/Yining-image-example/model.json';
-const maxPredictions = 2;
-const size = 400;
+const size = 300;
 const serviceUuid = "19b10000-e8f2-537e-4f6c-d104768a1214";
 
 let model;
-let video;
+let totalClasses;
+let webcamEl;
 let predictedClass;
 let goodbyeImg;
 let helloImg;
@@ -14,20 +14,26 @@ let myBLE;
 // A function that loads the model from the checkpoint
 async function load() {
   model = await tm.mobilenet.load(checkpoint);
+  totalClasses = model.getTotalClasses();
+  console.log("Number of classes, ", totalClasses);
+}
+
+async function loadWebcam() {
+  webcamEl = await tm.getWebcam(size, size); // can change width and height
+  webcamEl.play();
 }
 
 async function setup() {
   // Call the load function, wait until it finishes loading
   await load();
+  await loadWebcam();
 
-  myBLE = new p5ble();
+  // myBLE = new p5ble();
 
   // Create a 'Connect' button
   const connectButton = createButton('Connect')
   connectButton.mousePressed(connectToBle);
   connectButton.position(20, 20);
-
-  setupVideo();
 
   createCanvas(displayWidth, displayHeight);
   textAlign(CENTER, CENTER);
@@ -35,6 +41,10 @@ async function setup() {
 
   goodbyeImg = select('#goodbye');
   helloImg = select('#hello');
+}
+
+function draw() {
+  predictVideo(webcamEl);
 }
 
 function updateView() {
@@ -53,40 +63,18 @@ function updateView() {
   }
 }
 
-function setupVideo() {
-  // has to be a square video and image feed
-  const constraints = {
-    video: {
-      width: size,
-      height: size,
-      aspectRatio: 1
-    } 
-  };
-
-  // Get videos from webcam
-  video = createCapture(VIDEO, constraints, videoReady);
-
-  // Hide the video
-  video.hide()
-}
-
-function videoReady() {
-  // Make a prediction from square canvas
-  predictVideo(video.elt);
-}
-
 async function predictVideo(image) {
-  const prediction = await model.predict(image, maxPredictions);
-  if (prediction && prediction[0]) {
-    const result = prediction[0];
-    const { className, probability } = result;
-    if (probability > 0.8) {
-      predictedClass = className;
+  if (image) {
+    const prediction = await model.predict(image, totalClasses);
+    if (prediction && prediction[0]) {
+      const result = prediction[0];
+      const { className, probability } = result;
+      if (probability > 0.8) {
+        predictedClass = className;
+      }
+      // Show results on the canvas
+      updateView();
     }
-    // Show results on the canvas
-    updateView();
-    // Continue predicting
-    predictVideo(video.elt);
   }
 }
 
@@ -103,6 +91,7 @@ function gotCharacteristics(error, characteristics) {
 }
 
 function writeToBle(inputValue) {
+  if (!myCharacteristic) return;
   // Write the value of the input to the myCharacteristic
   myBLE.write(myCharacteristic, inputValue);
 }
