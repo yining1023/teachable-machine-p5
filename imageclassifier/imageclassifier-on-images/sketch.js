@@ -1,4 +1,7 @@
-const checkpoint = 'https://storage.googleapis.com/tm-pro-a6966.appspot.com/Yining-image-example/model.json';
+// the json file (model topology) has a reference to the bin file (model weights)
+const checkpointURL = 'https://storage.googleapis.com/tm-mobilenet/testirene/model.json';
+// the metatadata json file contains the text labels of your model and additional information
+const metadataURL = 'https://storage.googleapis.com/tm-mobilenet/testirene/metadata.json';
 
 let totalClasses;
 let img1;
@@ -7,7 +10,7 @@ let model;
 
 // A function that loads the model
 async function load() {
-  model = await tm.mobilenet.load(checkpoint);
+  model = await tm.mobilenet.load(checkpointURL, metadataURL);
   totalClasses = model.getTotalClasses();
   console.log("Number of classes, ", totalClasses);
 }

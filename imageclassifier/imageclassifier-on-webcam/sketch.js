@@ -1,10 +1,16 @@
-const checkpoint = 'https://storage.googleapis.com/tm-pro-a6966.appspot.com/Yining-image-example/model.json';
+// the json file (model topology) has a reference to the bin file (model weights)
+const checkpointURL = 'https://storage.googleapis.com/tm-mobilenet/testirene/model.json';
+// the metatadata json file contains the text labels of your model and additional information
+const metadataURL = 'https://storage.googleapis.com/tm-mobilenet/testirene/metadata.json';
+
 const size = 300;
 
 let vidContainer = document.getElementById('vidContainer');
 let webcamEl;
 let model;
 let totalClasses;
+
+console.log(tm);
 
 let weights = document.getElementById('weights');
 let json = document.getElementById('json');
@@ -19,7 +25,7 @@ json.onchange = function(e) {
 
 // A function that loads the model from the checkpoint
 async function load() {
-  model = await tm.mobilenet.load(checkpoint);
+  model = await tm.mobilenet.load(checkpointURL, metadataURL);
   totalClasses = model.getTotalClasses();
   console.log("Number of classes, ", totalClasses);
 }
