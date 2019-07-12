@@ -1,7 +1,7 @@
 // the json file (model topology) has a reference to the bin file (model weights)
-const checkpointURL = 'https://storage.googleapis.com/tm-mobilenet/testirene/model.json';
+const checkpointURL = 'https://storage.googleapis.com/tm-mobilenet/yiningimageexample2019071241636/model.json';
 // the metatadata json file contains the text labels of your model and additional information
-const metadataURL = 'https://storage.googleapis.com/tm-mobilenet/testirene/metadata.json';
+const metadataURL = 'https://storage.googleapis.com/tm-mobilenet/yiningimageexample2019071241636/metadata.json';
 
 let totalClasses;
 let img1;
