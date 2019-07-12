@@ -1,5 +1,5 @@
-const modelJson = 'https://storage.googleapis.com/tm-speech-commands/Yining-audio-example/model.json';
-const metadataJson = 'https://storage.googleapis.com/tm-speech-commands/Yining-audio-example/metadata.json';
+const modelJson = 'https://storage.googleapis.com/tm-speech-commands/yiningtestsound07112019/model.json';
+const metadataJson = 'https://storage.googleapis.com/tm-speech-commands/yiningtestsound07112019/metadata.json';
 
 const recognizer = speechCommands.create(
   'BROWSER_FFT',
@@ -49,8 +49,6 @@ async function loadMyModel() {
 
 function showResult(result) {
   console.log('result: ', result);
-  console.log('result.scores[0]', result.scores[0])
-  console.log('result.scores[1]', result.scores[1])
   // Show the probability for class 0
   prob0.innerHTML = result.scores[0];
 

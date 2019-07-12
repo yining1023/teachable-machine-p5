@@ -21,17 +21,13 @@ Here are examples of image, audio, and pose classifier.
   [Try it live](https://yining1023.github.io/teachable-machine-p5/imageclassifier/imageclassifier-on-webcam/)<br/>
   <kbd><img src="./images/demo2-1.png" width="300"></kbd><kbd><img src="./images/demo2-2.png" width="288"></kbd>
 
-- Image classifier with lamp a demo: [Try it live](https://yining1023.github.io/teachable-machine-p5/imageclassifier/imageclassifier-with-lamp/p5)<br/>
-  (It uses Arduino 101 to control a lamp, Arduino talks to p5 sketch through Bluetooth by using p5.ble.js)<br/>
-  video demo is coming soon.
-
 - Audio classifier on the microphone demo:
   [Try it live](https://yining1023.github.io/teachable-machine-p5/audioclassifier)<br/>
   <kbd><img src="./images/demo3.png" width="300"></kbd>
 
 - Poses classifier on the webcam demo:
   [Try it live](https://yining1023.github.io/teachable-machine-p5/poseclassifier/poseclassifier-on-webcam/)<br/>
-  <kbd><img src="./images/demo4-1.png" width="300"></kbd><kbd><img src="./images/demo4-2.png" width="300"></kbd>
+  <kbd><img src="./images/demo4-1.png" width="288"></kbd><kbd><img src="./images/demo4-2.png" width="313"></kbd>
 
 ## Get started
 Go to your terminal:
