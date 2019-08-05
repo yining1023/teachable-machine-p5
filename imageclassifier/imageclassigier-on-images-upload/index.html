@@ -18,19 +18,15 @@
 </style>
 
 <body>
-  <h2>Image classifier on Images</h2>
-  <div>
-    <p>Class 1: allblack</p>
-    <p>Class 2: anything but black</p>
-    <p>Image 1:</p>
-    <img id="image1" src="images/image1.png">
-    <p></p>The image classifier classify image 1 as class <span id="res1" class="bold-text">...</span> with <span id="prob1" class="bold-text">...</span> confidence.</p>
-  </div>
-  <div>
-    <p>Image 2:</p>
-    <img id="image2" src="images/image2.png">
-    <p>The image classifier classify image 2 as class <span id="res2" class="bold-text">...</span> with <span id="prob2" class="bold-text">...</span> confidence.</p>
-  </div>
+  <h2>Image classifier on Images (From File Uploader)</h2>
+  <p>The image classifier classify the image as class
+    <span id="res" class="bold-text">...</span>
+    with
+    <span id="prob" class="bold-text">...</span>
+    confidence.
+  </p>
+  <div id="input-container"></div>
+  <div id="image-container"></div>
   <script src="sketch.js"></script>
 </body>
 
