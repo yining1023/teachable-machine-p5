@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Image classifier</title>
-  
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.2/dist/tf.min.js"></script>
-  <script src="https://storage.googleapis.com/tm-pro/v1.0.5-c/teachablemachine-image.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
 </head>
@@ -24,12 +24,14 @@
     <p>Class 2: allblack</p>
     <p>Image 1:</p>
     <img id="image1" src="images/image1.png">
-    <p></p>The image classifier classify image 1 as class <span id="res1" class="bold-text">...</span> with <span id="prob1" class="bold-text">...</span> confidence.</p>
+    <p></p>The image classifier classify image 1 as class <span id="res1" class="bold-text">...</span> with <span
+      id="prob1" class="bold-text">...</span> confidence.</p>
   </div>
   <div>
     <p>Image 2:</p>
     <img id="image2" src="images/image2.png">
-    <p>The image classifier classify image 2 as class <span id="res2" class="bold-text">...</span> with <span id="prob2" class="bold-text">...</span> confidence.</p>
+    <p>The image classifier classify image 2 as class <span id="res2" class="bold-text">...</span> with <span id="prob2"
+        class="bold-text">...</span> confidence.</p>
   </div>
   <script src="sketch.js"></script>
 </body>

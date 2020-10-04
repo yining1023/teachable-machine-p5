@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Poses classifier</title>
-  
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.2/dist/tf.min.js"></script>
-  <script src="https://storage.googleapis.com/tm-pro/v0.1.0/teachablemachine-pose.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.dom.min.js"></script>
 </head>
 
 <style>
@@ -20,7 +20,8 @@
 <body>
   <h2>Poses classifier on Webcam</h2>
   <div>
-    <p>The Poses Classifier classify video as class <span id="res" class="bold-text">...</span> with <span id="prob" class="bold-text">...</span> confidence.</p>
+    <p>The Poses Classifier classify video as class <span id="res" class="bold-text">...</span> with <span id="prob"
+        class="bold-text">...</span> confidence.</p>
     <p>Class "sit": Sit in front of the webcam</p>
     <p>Class "standup": Stand up front of the webcam</p>
     <div id='vidContainer'></div>

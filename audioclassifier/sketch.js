@@ -1,5 +1,8 @@
-const modelJson = 'https://storage.googleapis.com/tm-speech-commands/yiningtestsound07112019/model.json';
-const metadataJson = 'https://storage.googleapis.com/tm-speech-commands/yiningtestsound07112019/metadata.json';
+const modelURL = 'https://teachablemachine.withgoogle.com/models/jhTNSV1NM/';
+// the json file (model topology) has a reference to the bin file (model weights)
+const modelJson = modelURL + "model.json";
+// the metatadata json file contains the text labels of your model and additional information
+const metadataJson = modelURL + "metadata.json";
 
 const recognizer = speechCommands.create(
   'BROWSER_FFT',

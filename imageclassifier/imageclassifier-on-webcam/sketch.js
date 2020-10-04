@@ -1,16 +1,15 @@
+const modelURL = "https://teachablemachine.withgoogle.com/models/Sga1Yzuzx/";
 // the json file (model topology) has a reference to the bin file (model weights)
-const checkpointURL = 'https://storage.googleapis.com/tm-mobilenet/yiningimageexample2019071241636/model.json';
+const checkpointURL = modelURL + "model.json";
 // the metatadata json file contains the text labels of your model and additional information
-const metadataURL = 'https://storage.googleapis.com/tm-mobilenet/yiningimageexample2019071241636/metadata.json';
+const metadataURL = modelURL + "metadata.json";
 
 const size = 300;
 
 let vidContainer = document.getElementById('vidContainer');
-let webcamEl;
+let webcam;
 let model;
 let totalClasses;
-
-console.log(tm);
 
 let weights = document.getElementById('weights');
 let json = document.getElementById('json');
@@ -25,7 +24,7 @@ json.onchange = function(e) {
 
 // A function that loads the model from the checkpoint
 async function load() {
-  model = await tm.mobilenet.load(checkpointURL, metadataURL);
+  model = await tmImage.load(checkpointURL, metadataURL);
   totalClasses = model.getTotalClasses();
   console.log("Number of classes, ", totalClasses);
 }
@@ -37,40 +36,50 @@ async function loadFiles() {
 
   if(jsonFile != undefined && weightsFile != undefined) {
     console.log("model loaded from uploaded files");
-    model = await tm.mobilenet.loadFromFiles(json.files[0], weights.files[0]);
+    model = await tmImage.loadFromFiles(json.files[0], weights.files[0]);
     console.log("Number of classes, ", model.getTotalClasses());
   }
 }
 
 async function loadWebcam() {
-  const vidContainerEl = document.getElementById('vidContainer');
-  webcamEl = await tm.getWebcam(size, size); // can change width and height
-  webcamEl.play();
-  vidContainerEl.append(webcamEl);
+  webcam = new tmImage.Webcam(size, size); // can change width and height
+  await webcam.setup();
+  await webcam.play();
+  window.requestAnimationFrame(loopWebcam);
+}
+
+async function loopWebcam(timestamp) {
+  webcam.update(); // update the webcam frame
+  await predict();
+  window.requestAnimationFrame(loopWebcam);
 }
 
 async function setup() {
+  myCanvas = createCanvas(size, size);
+  ctx = myCanvas.elt.getContext("2d");
   // Call the load function, wait until it finishes loading
   await load();
   await loadWebcam();
 }
 
-function draw() {
-  predictVideo(webcamEl);
-}
+async function predict() {
+  // in this case we set the flip variable to true since webcam 
+  // was only flipped in CSS 
+  const prediction = await model.predict(webcam.canvas, true, totalClasses);
 
-async function predictVideo(image) {
-  if (image) {
-    // in this case we set the flip variable to true since webcam 
-    // was only flipped in CSS 
-    const prediction = await model.predict(image, true, totalClasses);
+  // Sort prediction array by probability
+  // So the first classname will have the highest probability
+  const sortedPrediction = prediction.sort((a, b) => - a.probability + b.probability);
 
-    // Show the result
-    const res = select('#res'); // select <span id="res">
-    res.html(prediction[0].className);
-  
-    // Show the probability
-    const prob = select('#prob'); // select <span id="prob">
-    prob.html(prediction[0].probability.toFixed(2));
+  // Show the result
+  const res = select('#res'); // select <span id="res">
+  res.html(sortedPrediction[0].className);
+
+  // Show the probability
+  const prob = select('#prob'); // select <span id="prob">
+  prob.html(sortedPrediction[0].probability.toFixed(2));
+
+  if (webcam.canvas) {
+    ctx.drawImage(webcam.canvas, 0, 0);
   }
 }
